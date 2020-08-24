@@ -32,6 +32,7 @@
 		
 	<mapping class = "com.tut.Student"/>
 	
+	<mapping class = "com.tut.Address"/>
 
       
    </session-factory>
