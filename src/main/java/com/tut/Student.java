@@ -8,19 +8,35 @@ public class Student {
 
 	@Id
 	private int id;
-	 
+	
+	
 	
 	private String name;
 	
 	
 	private String city;
 	
+	private Certificate certi;
 	
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", city=" + city + "]";
 	}
 	
+	
+	
+	public Certificate getCerti() {
+		return certi;
+	}
+
+
+
+	public void setCerti(Certificate certi) {
+		this.certi = certi;
+	}
+
+
+
 	public Student(int id, String name, String city) {
 		super();
 		this.id = id;

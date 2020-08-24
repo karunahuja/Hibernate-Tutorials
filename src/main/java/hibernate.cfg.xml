@@ -33,7 +33,8 @@
 	<mapping class = "com.tut.Student"/>
 	
 	<mapping class = "com.tut.Address"/>
-
+	
+	<mapping class = "com.tut.Certificate"/>
       
    </session-factory>
 </hibernate-configuration>
