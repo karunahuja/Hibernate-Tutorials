@@ -18,36 +18,37 @@ public class MapDemo {
 	        
 	        SessionFactory factory=cfg.buildSessionFactory();
 	        	
-	        //creating question
-	        Question q1=new Question();
-	        q1.setQuestion("what is java?");
-	        q1.setQuestionId(1212);
-	        
-	        Answer answer=new Answer();
-	        answer.setAnswerId(1);
-	        answer.setAnswer("Java is programming language");
-	       answer.setQuestion(q1);
-	        
-	        
-	        Answer answer1=new Answer();
-	        answer1.setAnswerId(3);
-	        answer1.setAnswer("Java creates applications");
-	        answer1.setQuestion(q1);
-	        
-	        
-	        
-	        Answer answer2=new Answer();
-	        answer2.setAnswerId(5);
-	        answer2.setAnswer("Java s applications");
-	        answer2.setQuestion(q1);
-	        
-	        List<Answer> list=new ArrayList<Answer>();
-	        list.add(answer);
-	        list.add(answer1);
-	        list.add(answer2);
-	        
-	        q1.setAnswers(list);
-	        
+	       Emp e1=new Emp();
+	       Emp e2=new Emp();
+	       
+	       e1.setEid(14);
+	       e1.setName("Ram");
+	       
+	       e2.setEid(22);
+	       e2.setName("Shyam");
+	       
+	       Project p1=new Project();
+	       Project p2=new Project();
+	       
+	       p1.setPid(1121);
+	       p1.setProjectName("Library Management");
+	       p2.setPid(1113);
+	       p2.setProjectName("ChatBot");
+
+	       
+	       List<Emp> list1=new ArrayList<Emp>();
+	       List<Project> list2=new ArrayList<Project>();
+	       
+	       list1.add(e1);
+	       list1.add(e2);
+	       
+	       
+	       list2.add(p1);
+	       list2.add(p2);
+	       
+	       e1.setProjects(list2);
+	       p2.setEmps(list1);
+	       
 	        
 	      
 	        
@@ -55,10 +56,10 @@ public class MapDemo {
 	        
 	        Transaction tx=session.beginTransaction();
 	        
-	        session.save(q1);
-	        session.save(answer1);
-	        session.save(answer2);
-	        
+	        session.save(e1);
+	        session.save(e2);
+	        session.save(p1);
+	        session.save(p2);
 	      
 	       
 	        
