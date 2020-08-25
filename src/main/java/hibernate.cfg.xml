@@ -41,6 +41,6 @@
 	<mapping class = "com.map.Project"/>
     
     <mapping class = "com.map.Emp"/>
-      
+      <mapping class = "com.hql.HQLExample"/> 
    </session-factory>
 </hibernate-configuration>
