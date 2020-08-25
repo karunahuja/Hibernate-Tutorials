@@ -1,5 +1,8 @@
 package com.map;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -21,35 +24,43 @@ public class MapDemo {
 	        q1.setQuestionId(1212);
 	        
 	        Answer answer=new Answer();
-	        answer.setAnswerId(343);
+	        answer.setAnswerId(1);
 	        answer.setAnswer("Java is programming language");
-	        q1.setAnswer(answer);
-	        answer.setQuestion(q1);
-	        
-	        
-	        
-	        //creating question
-	        Question q2=new Question();
-	        q2.setQuestion("what is android?");
-	        q2.setQuestionId(242);
+	       answer.setQuestion(q1);
 	        
 	        
 	        Answer answer1=new Answer();
-	        answer1.setAnswerId(143);
-	        answer1.setAnswer("android is programming language");
-	        q2.setAnswer(answer1);
-	        answer1.setQuestion(q2);
+	        answer1.setAnswerId(3);
+	        answer1.setAnswer("Java creates applications");
+	        answer1.setQuestion(q1);
 	        
+	        
+	        
+	        Answer answer2=new Answer();
+	        answer2.setAnswerId(5);
+	        answer2.setAnswer("Java s applications");
+	        answer2.setQuestion(q1);
+	        
+	        List<Answer> list=new ArrayList<Answer>();
+	        list.add(answer);
+	        list.add(answer1);
+	        list.add(answer2);
+	        
+	        q1.setAnswers(list);
+	        
+	        
+	      
 	        
 	        Session session=factory.openSession();
 	        
 	        Transaction tx=session.beginTransaction();
 	        
 	        session.save(q1);
-	        session.save(q2);
-	        
 	        session.save(answer1);
-	        session.save(answer);
+	        session.save(answer2);
+	        
+	      
+	       
 	        
 	        tx.commit();
 	       
