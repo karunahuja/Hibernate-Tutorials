@@ -1,7 +1,11 @@
 package util;
 
+
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.SessionFactorl;
+
+import dao.PersonDao;
+import entity.Person;
 
 
 
@@ -10,14 +14,19 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-SessionFactory sessionFactory=HibernateUtil.getSessionFactory();
-
-Session session=sessionFactory.openSession();
-
-
-
+		Person person=new Person(1, "John","Smith");
 		
-session.close();		
+		PersonDao personDao=new PersonDao();
+		
+		personDao.savePerson(person);
+		
+		person.setLastName("Dao");
+		
+		personDao.savePerson(person);
+		
+		personDao.deletePerson(person);
+	
+				
 	}
 
 }
