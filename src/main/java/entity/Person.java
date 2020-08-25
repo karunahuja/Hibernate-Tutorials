@@ -5,8 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.Filters;
+import org.hibernate.annotations.ParamDef;
+
 @Entity
 @Table(name="person")
+@FilterDef(name="personFilter" , parameters={
+		@ParamDef(name="idParam",type="integer")
+})
+
+@Filters({
+	@Filter(name="personFilter",condition="id>:idParam")
+})
 public class Person {
 	
 	@Id

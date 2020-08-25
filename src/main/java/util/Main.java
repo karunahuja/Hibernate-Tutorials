@@ -1,5 +1,7 @@
+package util;
 
-
+import java.util.Arrays;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 
@@ -7,10 +9,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import org.hibernate.Transaction;
+import org.hibernate.Filter;
 
-import dao.PersonDao;
 import entity.Person;
-import util.HibernateUtil;
 
 
 
@@ -24,18 +25,23 @@ public class Main {
 		try {
 			
 			tx=session.beginTransaction();
-			for(int i=0;i<100;i++) {
-				session.save(new Person(i,"John"+i,"Smith"+i));
 			
-			if(i%30==0) {
-				session.flush();
-				session.clear();
-			}
+			Filter filter=session.enableFilter("personFilter");
 			
-			}
+			filter.setParameter("idParam",5);
 			
-			tx.commit();
+			List<Object []> list3=session.createQuery("from Person").list();
+			 
+			   
+			   for(Object[] arr:list3) {
+				   System.out.println(Arrays.toString(arr));
+			   }
+				
+			   
 			
+			session.disableFilter("personFilter");
+			
+
 			
 		}
 		catch(HibernateException exc){
