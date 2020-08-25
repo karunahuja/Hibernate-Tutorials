@@ -1,6 +1,8 @@
 package util;
 
 
+import javax.persistence.EntityManager;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactorl;
 
@@ -11,22 +13,13 @@ import entity.Person;
 
 public class Main {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		Person person=new Person(1, "John","Smith");
+	public static void main(String[] args) throws Exception {
+		EntityManager entityManager=JPAUtil.getEntityManager();
 		
-		PersonDao personDao=new PersonDao();
 		
-		personDao.savePerson(person);
-		
-		person.setLastName("Dao");
-		
-		personDao.savePerson(person);
-		
-		personDao.deletePerson(person);
 	
 				
+		
 	}
 
 }
