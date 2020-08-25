@@ -1,4 +1,4 @@
-package util;
+
 
 
 import javax.persistence.EntityManager;
@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 
 import dao.PersonDao;
 import entity.Person;
+import util.HibernateUtil;
 
 
 
