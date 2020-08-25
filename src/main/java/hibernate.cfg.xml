@@ -42,5 +42,8 @@
     
     <mapping class = "com.map.Emp"/>
       <mapping class = "com.hql.HQLExample"/> 
+      
+   <mapping resource="entity/Person.hbm.xml"></mapping>   
+      
    </session-factory>
 </hibernate-configuration>
